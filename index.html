@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>GadgetStore — Премиальный интернет-магазин гаджетов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="index">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Gadget<span>Store</span></a>
+      <nav class="main-nav">
+        <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+      </nav>
+      <form class="header-search" id="headerSearchForm">
+        <input type="text" id="headerSearchInput" placeholder="Поиск по товарам..." data-i18n-placeholder="search_placeholder" aria-label="Поиск по товарам" />
+        <button type="submit" aria-label="Искать">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-button" id="clientMenuButton" type="button" aria-label="Меню клиента">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="icon-button" id="adminMenuButton" type="button" aria-label="Меню администратора">
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
+        <button class="icon-button" id="settingsButton" type="button" aria-label="Настройки">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <a href="cart.html" class="icon-button cart-button" aria-label="Корзина">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero reveal-on-scroll">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1 data-i18n-key="hero_title">Гаджеты уровня флагманов для вашей ежедневной магии</h1>
+          <p data-i18n-key="hero_subtitle">Подберите технику, которая органично впишется в ваш ритм жизни: от смартфона и ноутбука до смарт‑часов и продвинутых аксессуаров.</p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn-primary" data-i18n-key="hero_cta_catalog">Перейти в каталог</a>
+            <button class="btn-ghost scroll-to-hits" type="button" data-i18n-key="hero_cta_hits">Хиты продаж</button>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <span>24/7</span>
+              <p>Онлайн‑поддержка</p>
+            </div>
+            <div>
+              <span>2 000+</span>
+              <p>Довольных клиентов</p>
+            </div>
+            <div>
+              <span>12 мес.</span>
+              <p>Гарантия на технику</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-media">
+          <div class="hero-card">
+            <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Современный смартфон" />
+            <div class="hero-card-info">
+              <p>Новые флагманы уже в наличии</p>
+              <span>От 79 990 ₸</span>
+            </div>
+          </div>
+          <div class="hero-floating">
+            <div class="hero-chip">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Молниеносная доставка</span>
+            </div>
+            <div class="hero-chip">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Официальная гарантия</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Категории -->
+    <section class="section categories reveal-on-scroll">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n-key="section_categories_title">Категории</h2>
+          <p data-i18n-key="section_categories_subtitle">Выберите свою категорию и найдите идеальный гаджет.</p>
+        </div>
+        <div class="category-grid">
+          <a href="products.html?category=phones" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 data-i18n-key="cat_phones">Смартфоны</h3>
+            <p>Флагманы и доступные модели.</p>
+          </a>
+          <a href="products.html?category=laptops" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-laptop"></i>
+            </div>
+            <h3 data-i18n-key="cat_laptops">Ноутбуки</h3>
+            <p>Для работы, учебы и творчества.</p>
+          </a>
+          <a href="products.html?category=headphones" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-headphones"></i>
+            </div>
+            <h3 data-i18n-key="cat_headphones">Наушники</h3>
+            <p>Беспроводной звук премиум‑класса.</p>
+          </a>
+          <a href="products.html?category=tablets" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-tablet-screen-button"></i>
+            </div>
+            <h3 data-i18n-key="cat_tablets">Планшеты</h3>
+            <p>Работа и развлечения на ходу.</p>
+          </a>
+          <a href="products.html?category=watches" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-watch-smart"></i>
+            </div>
+            <h3 data-i18n-key="cat_watches">Смарт‑часы</h3>
+            <p>Контроль здоровья и уведомления.</p>
+          </a>
+          <a href="products.html?category=accessories" class="category-card">
+            <div class="category-icon">
+              <i class="fa-solid fa-plug-circle-bolt"></i>
+            </div>
+            <h3 data-i18n-key="cat_accessories">Аксессуары</h3>
+            <p>Зарядки, чехлы, хабы и др.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Бренды -->
+    <section class="section brands reveal-on-scroll">
+      <div class="container">
+        <div class="section-header">
+          <h2>Бренды, с которыми мы работаем</h2>
+          <p>Подбираем технику только проверенных производителей.</p>
+        </div>
+        <div class="brands-strip">
+          <div class="brand-pill">Apple</div>
+          <div class="brand-pill">Samsung</div>
+          <div class="brand-pill">Xiaomi</div>
+          <div class="brand-pill">Sony</div>
+          <div class="brand-pill">Dell</div>
+          <div class="brand-pill">ASUS</div>
+          <div class="brand-pill">Nothing</div>
+          <div class="brand-pill">Baseus</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Хиты продаж -->
+    <section class="section products-highlight reveal-on-scroll" id="hitsSection">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n-key="section_hits_title">Хиты продаж</h2>
+          <p data-i18n-key="section_hits_subtitle">Выбор наших клиентов — лучшие устройства по соотношению цена/качество.</p>
+        </div>
+        <div class="product-grid" id="hitsGrid">
+          <!-- Заполняется из script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Новинки -->
+    <section class="section products-highlight reveal-on-scroll">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n-key="section_new_title">Новинки</h2>
+          <p data-i18n-key="section_new_subtitle">Самые свежие релизы топ‑брендов.</p>
+        </div>
+        <div class="product-grid" id="newGrid">
+          <!-- Заполняется из script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="section testimonials reveal-on-scroll">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n-key="section_reviews_title">Отзывы клиентов</h2>
+          <p data-i18n-key="section_reviews_subtitle">Нам доверяют тысячи пользователей по всей стране.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="avatar">А</div>
+              <div>
+                <h3>Алексей</h3>
+                <span>Москва</span>
+              </div>
+            </div>
+            <p>«Отличный сервис, заказал смартфон — доставили уже на следующий день. Всё оригинал, гарантия, упаковка идеальная.»</p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="avatar">Е</div>
+              <div>
+                <h3>Екатерина</h3>
+                <span>Санкт‑Петербург</span>
+              </div>
+            </div>
+            <p>«Покупала ноутбук для работы в дизайне. Консультанты помогли подобрать модель, которая идеально подошла по задачам.»</p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="avatar">Д</div>
+              <div>
+                <h3>Дмитрий</h3>
+                <span>Екатеринбург</span>
+              </div>
+            </div>
+            <p>«Очень понравился удобный сайт: всё понятно, быстро нашёл нужные наушники и оплатил за пару кликов.»</p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="avatar">Н</div>
+              <div>
+                <h3>Наталья</h3>
+                <span>Новосибирск</span>
+              </div>
+            </div>
+            <p>«Удобная доставка и приятная упаковка. Покупала смарт‑часы в подарок — всё выглядело очень премиально.»</p>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Подписка -->
+    <section class="section newsletter reveal-on-scroll">
+      <div class="container newsletter-inner">
+        <div>
+          <h2 data-i18n-key="section_newsletter_title">Подпишитесь на новые релизы и спецпредложения</h2>
+          <p data-i18n-key="section_newsletter_subtitle">Мы не спамим — только самые важные новости и лучшие скидки.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Ваш e‑mail" data-i18n-placeholder="newsletter_email" required />
+          <button type="submit" class="btn-primary" data-i18n-key="btn_subscribe">Подписаться</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo footer-logo">Gadget<span>Store</span></a>
+        <p>Премиальные гаджеты и безупречный сервис.</p>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <h4 data-i18n-key="footer_shop">Магазин</h4>
+          <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+        </div>
+        <div>
+          <h4 data-i18n-key="footer_info">Информация</h4>
+          <a href="#" data-i18n-key="footer_privacy">Политика конфиденциальности</a>
+          <a href="#" data-i18n-key="footer_terms">Условия использования</a>
+        </div>
+        <div>
+          <h4>Мы в соцсетях</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 GadgetStore.</p>
+    </div>
+  </footer>
+
+  <div id="clientSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню клиента</h2>
+        <button type="button" class="icon-button sidebar-close" id="clientSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="clientSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="adminSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню администратора</h2>
+        <button type="button" class="icon-button sidebar-close" id="adminSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="adminSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="settingsModalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 data-i18n-key="settings_title">Настройки</h2>
+        <button type="button" class="icon-button modal-close" id="settingsCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_language">Язык интерфейса</h3>
+        <div class="settings-row" id="languageButtons">
+          <button type="button" class="chip" data-lang="ru">Русский</button>
+          <button type="button" class="chip" data-lang="en">English</button>
+          <button type="button" class="chip" data-lang="kk">Қазақша</button>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_theme">Тема</h3>
+        <p data-i18n-key="settings_theme_hint">Переключать светлую и тёмную тему можно также через иконку луны в шапке.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+

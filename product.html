@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Товар — GadgetStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="product">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Gadget<span>Store</span></a>
+      <nav class="main-nav">
+        <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+      </nav>
+      <form class="header-search" id="headerSearchForm">
+        <input type="text" id="headerSearchInput" placeholder="Поиск по товарам..." data-i18n-placeholder="search_placeholder" aria-label="Поиск по товарам" />
+        <button type="submit" aria-label="Искать">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-button" id="clientMenuButton" type="button" aria-label="Меню клиента">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="icon-button" id="adminMenuButton" type="button" aria-label="Меню администратора">
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
+        <a href="cart.html" class="icon-button cart-button" aria-label="Корзина">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-with-top-padding">
+    <section class="section product-section reveal-on-scroll">
+      <div class="container" id="productContainer">
+        <!-- Данные товара подставляются из script.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo footer-logo">Gadget<span>Store</span></a>
+        <p>Премиальные гаджеты и безупречный сервис.</p>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <h4>Магазин</h4>
+          <a href="products.html">Каталог</a>
+        </div>
+        <div>
+          <h4>Информация</h4>
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Условия использования</a>
+        </div>
+        <div>
+          <h4>Мы в соцсетях</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 GadgetStore. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div id="clientSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню клиента</h2>
+        <button type="button" class="icon-button sidebar-close" id="clientSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="clientSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="adminSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню администратора</h2>
+        <button type="button" class="icon-button sidebar-close" id="adminSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="adminSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+

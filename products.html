@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Каталог — GadgetStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="catalog">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Gadget<span>Store</span></a>
+      <nav class="main-nav">
+        <a href="products.html" class="active" data-i18n-key="nav_catalog">Каталог</a>
+      </nav>
+      <form class="header-search" id="headerSearchForm">
+        <input type="text" id="headerSearchInput" placeholder="Поиск по товарам..." data-i18n-placeholder="search_placeholder" aria-label="Поиск по товарам" />
+        <button type="submit" aria-label="Искать">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-button" id="clientMenuButton" type="button" aria-label="Меню клиента">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="icon-button" id="adminMenuButton" type="button" aria-label="Меню администратора">
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
+        <button class="icon-button" id="settingsButton" type="button" aria-label="Настройки">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <a href="cart.html" class="icon-button cart-button" aria-label="Корзина">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-with-top-padding">
+    <section class="section catalog-section reveal-on-scroll">
+      <div class="container">
+        <div class="section-header catalog-header">
+          <div>
+            <h1 data-i18n-key="page_catalog_title">Каталог</h1>
+            <p data-i18n-key="page_catalog_subtitle">Найдите свой идеальный гаджет по фильтрам и категориям.</p>
+          </div>
+          <div class="catalog-header-controls">
+            <span id="catalogTotalCount"></span>
+          </div>
+        </div>
+
+        <div class="catalog-layout">
+          <!-- Фильтры -->
+          <aside class="catalog-filters">
+            <div class="filter-block">
+              <h3 data-i18n-key="filter_categories">Категории</h3>
+              <div class="filter-chips" id="categoryFilters">
+                <button type="button" data-category="all" class="chip active">Все</button>
+                <button type="button" data-category="phones" class="chip">Телефоны</button>
+                <button type="button" data-category="laptops" class="chip">Ноутбуки</button>
+                <button type="button" data-category="headphones" class="chip">Наушники</button>
+                <button type="button" data-category="tablets" class="chip">Планшеты</button>
+                <button type="button" data-category="watches" class="chip">Смарт‑часы</button>
+                <button type="button" data-category="accessories" class="chip">Аксессуары</button>
+              </div>
+            </div>
+
+            <div class="filter-block">
+              <h3 data-i18n-key="filter_sort">Сортировка</h3>
+              <select id="sortSelect" class="select">
+                <option value="default">По умолчанию</option>
+                <option value="price_asc">Сначала дешёвые</option>
+                <option value="price_desc">Сначала дорогие</option>
+                <option value="rating_desc">По рейтингу</option>
+              </select>
+            </div>
+
+            <div class="filter-block">
+              <h3 data-i18n-key="filter_search">Поиск</h3>
+              <input type="text" id="catalogSearchInput" class="input" placeholder="Название товара..." data-i18n-placeholder="filter_search_placeholder" />
+            </div>
+
+            <div class="filter-block">
+              <h3 data-i18n-key="filter_extra">Дополнительно</h3>
+              <div style="font-size: 0.86rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px;">
+                <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                  <input type="checkbox" id="filterHits" style="margin:0;" />
+                  <span data-i18n-key="filter_only_hits">Только хиты продаж</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:6px; cursor:pointer;">
+                  <input type="checkbox" id="filterNew" style="margin:0;" />
+                  <span data-i18n-key="filter_only_new">Только новинки</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Список товаров -->
+          <div class="catalog-content">
+            <!-- Skeleton loading -->
+            <div id="catalogSkeleton" class="product-grid skeleton-grid">
+              <div class="product-card skeleton-card"></div>
+              <div class="product-card skeleton-card"></div>
+              <div class="product-card skeleton-card"></div>
+              <div class="product-card skeleton-card"></div>
+              <div class="product-card skeleton-card"></div>
+              <div class="product-card skeleton-card"></div>
+            </div>
+
+            <div id="productsContainer" class="product-grid"></div>
+
+            <p id="noResultsMessage" class="empty-state" hidden data-i18n-key="catalog_no_results">
+              По вашему запросу ничего не найдено. Попробуйте изменить фильтры или запрос.
+            </p>
+
+            <div class="catalog-pagination">
+              <button id="showMoreBtn" type="button" class="btn-secondary" data-i18n-key="btn_show_more">Показать ещё</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo footer-logo">Gadget<span>Store</span></a>
+        <p>Премиальные гаджеты и безупречный сервис.</p>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <h4 data-i18n-key="footer_shop">Магазин</h4>
+          <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+        </div>
+        <div>
+          <h4 data-i18n-key="footer_info">Информация</h4>
+          <a href="#" data-i18n-key="footer_privacy">Политика конфиденциальности</a>
+          <a href="#" data-i18n-key="footer_terms">Условия использования</a>
+        </div>
+        <div>
+          <h4>Мы в соцсетях</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 GadgetStore. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div id="clientSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню клиента</h2>
+        <button type="button" class="icon-button sidebar-close" id="clientSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="clientSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="adminSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню администратора</h2>
+        <button type="button" class="icon-button sidebar-close" id="adminSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="adminSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="settingsModalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 data-i18n-key="settings_title">Настройки</h2>
+        <button type="button" class="icon-button modal-close" id="settingsCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_language">Язык интерфейса</h3>
+        <div class="settings-row" id="languageButtons">
+          <button type="button" class="chip" data-lang="ru">Русский</button>
+          <button type="button" class="chip" data-lang="en">English</button>
+          <button type="button" class="chip" data-lang="kk">Қазақша</button>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_theme">Тема</h3>
+        <p data-i18n-key="settings_theme_hint">Переключать светлую и тёмную тему можно также через иконку луны в шапке.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="script.js" defer></script>
+  <script>
+  fetch('/api/products')
+    .then(res => res.json())
+    .then(products => {
+      const grid = document.getElementById('productsContainer');
+
+      if (!grid) return;
+
+      grid.innerHTML = '';
+
+      products.forEach(p => {
+        grid.innerHTML += `
+          <article class="product-card">
+            <h3>${p.name}</h3>
+            <p>${p.category}</p>
+            <p>${p.description}</p>
+            <strong>${p.price} ₸</strong>
+            <p>Қоймада: ${p.stock}</p>
+          </article>
+        `;
+      });
+    })
+    .catch(err => console.error('Ошибка:', err));
+</script> 
+</body>
+</html>
+

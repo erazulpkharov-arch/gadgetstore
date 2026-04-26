@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Корзина — GadgetStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="cart">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Gadget<span>Store</span></a>
+      <nav class="main-nav">
+        <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+      </nav>
+      <form class="header-search" id="headerSearchForm">
+        <input type="text" id="headerSearchInput" placeholder="Поиск по товарам..." data-i18n-placeholder="search_placeholder" aria-label="Поиск по товарам" />
+        <button type="submit" aria-label="Искать">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="header-actions">
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Переключить тему">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="icon-button" id="clientMenuButton" type="button" aria-label="Меню клиента">
+          <i class="fa-solid fa-user"></i>
+        </button>
+        <button class="icon-button" id="adminMenuButton" type="button" aria-label="Меню администратора">
+          <i class="fa-solid fa-shield-halved"></i>
+        </button>
+        <button class="icon-button" id="settingsButton" type="button" aria-label="Настройки">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <a href="cart.html" class="icon-button cart-button active" aria-label="Корзина">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-with-top-padding">
+    <section class="section cart-section reveal-on-scroll">
+      <div class="container">
+        <div class="section-header">
+          <h1 data-i18n-key="cart_title">Корзина</h1>
+          <p data-i18n-key="cart_subtitle">Проверьте состав заказа перед оформлением.</p>
+        </div>
+
+        <div id="emptyCartState" class="empty-state">
+          <p data-i18n-key="cart_empty">Ваша корзина пуста.</p>
+          <a href="products.html" class="btn-primary" data-i18n-key="hero_cta_catalog">Перейти в каталог</a>
+        </div>
+
+        <div id="cartContent" class="cart-layout" hidden>
+          <div class="cart-items-wrapper">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th data-i18n-key="cart_col_product">Товар</th>
+                  <th data-i18n-key="cart_col_price">Цена</th>
+                  <th data-i18n-key="cart_col_qty">Количество</th>
+                  <th data-i18n-key="cart_col_total">Сумма</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cartItems"></tbody>
+            </table>
+          </div>
+          <aside class="cart-summary">
+            <h2 data-i18n-key="cart_summary_title">Итого</h2>
+            <div class="cart-summary-row">
+              <span data-i18n-key="cart_summary_items">Товары</span>
+              <span id="cartItemsCount"></span>
+            </div>
+            <div class="cart-summary-row">
+              <span data-i18n-key="cart_summary_total">Сумма заказа</span>
+              <span id="cartTotal">0 ₸</span>
+            </div>
+            <p class="cart-summary-note" data-i18n-key="cart_delivery_hint">Доставка рассчитывается при оформлении заказа.</p>
+            <button type="button" id="checkoutBtn" class="btn-primary full-width" data-i18n-key="cart_checkout">Оформить заказ</button>
+            <button type="button" id="clearCartBtn" class="btn-ghost full-width" data-i18n-key="cart_clear">Очистить корзину</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a href="index.html" class="logo footer-logo">Gadget<span>Store</span></a>
+        <p>Премиальные гаджеты и безупречный сервис.</p>
+      </div>
+      <div class="footer-columns">
+        <div>
+          <h4 data-i18n-key="footer_shop">Магазин</h4>
+          <a href="products.html" data-i18n-key="nav_catalog">Каталог</a>
+        </div>
+        <div>
+          <h4 data-i18n-key="footer_info">Информация</h4>
+          <a href="#" data-i18n-key="footer_privacy">Политика конфиденциальности</a>
+          <a href="#" data-i18n-key="footer_terms">Условия использования</a>
+        </div>
+        <div>
+          <h4>Мы в соцсетях</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" aria-label="VK"><i class="fa-brands fa-vk"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 GadgetStore.</p>
+    </div>
+  </footer>
+
+  <div id="clientSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню клиента</h2>
+        <button type="button" class="icon-button sidebar-close" id="clientSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="clientSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="adminSidebarOverlay" class="sidebar-overlay" hidden>
+    <aside class="sidebar-panel">
+      <div class="sidebar-header">
+        <h2>Меню администратора</h2>
+        <button type="button" class="icon-button sidebar-close" id="adminSidebarCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="adminSidebarContent"></div>
+    </aside>
+  </div>
+
+  <div id="settingsModalOverlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <div class="modal-header">
+        <h2 data-i18n-key="settings_title">Настройки</h2>
+        <button type="button" class="icon-button modal-close" id="settingsCloseBtn" aria-label="Закрыть">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_language">Язык интерфейса</h3>
+        <div class="settings-row" id="languageButtons">
+          <button type="button" class="chip" data-lang="ru">Русский</button>
+          <button type="button" class="chip" data-lang="en">English</button>
+          <button type="button" class="chip" data-lang="kk">Қазақша</button>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3 data-i18n-key="settings_theme">Тема</h3>
+        <p data-i18n-key="settings_theme_hint">Переключать светлую и тёмную тему можно также через иконку луны в шапке.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
