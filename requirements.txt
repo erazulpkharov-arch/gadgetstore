@@ -1,3 +1,8 @@
 flask
 psycopg2-binary
 flask-cors
+python-telegram-bot==20.7
+python-dotenv
+requests
+prometheus-client
+openai
