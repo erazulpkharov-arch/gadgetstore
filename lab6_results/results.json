@@ -1,0 +1,63 @@
+{
+  "seed": 20261008,
+  "runs": 10000,
+  "backlog": 60,
+  "story_points": 55,
+  "throughput": [
+    3,
+    8,
+    4,
+    10,
+    2,
+    7,
+    9,
+    5,
+    6,
+    6
+  ],
+  "data_status": "lecture_example_not_project_history",
+  "velocity_status": "assumed_not_measured",
+  "velocity": 11,
+  "start_date": "2026-10-12",
+  "pause_weeks": [
+    4,
+    12
+  ],
+  "quantiles": [
+    {
+      "level": "P50",
+      "active_weeks": 10,
+      "calendar_weeks": 11,
+      "finish_date": "2026-12-27",
+      "empirical_probability": 0.5301
+    },
+    {
+      "level": "P70",
+      "active_weeks": 11,
+      "calendar_weeks": 13,
+      "finish_date": "2027-01-10",
+      "empirical_probability": 0.7876
+    },
+    {
+      "level": "P85",
+      "active_weeks": 12,
+      "calendar_weeks": 14,
+      "finish_date": "2027-01-17",
+      "empirical_probability": 0.9301
+    },
+    {
+      "level": "P95",
+      "active_weeks": 13,
+      "calendar_weeks": 15,
+      "finish_date": "2027-01-24",
+      "empirical_probability": 0.9834
+    }
+  ],
+  "det_active": 10,
+  "det_calendar": 11,
+  "det_date": "2026-12-27",
+  "det_probability": 0.5301,
+  "lab5_deadline": "2027-01-03",
+  "lab5_probability": 0.5301,
+  "expanded_backlog_p85": 14
+}
