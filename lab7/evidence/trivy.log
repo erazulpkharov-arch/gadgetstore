@@ -1,0 +1,10 @@
+
+2026-10-15T16:51:17+05:00	INFO	[misconfig] Misconfiguration scanning is enabled
+2026-10-15T16:51:17+05:00	INFO	[checks-client] No downloadable checks were loaded as --skip-check-update is enabled, loading from existing cache...
+2026-10-15T16:51:17+05:00	ERROR	[misconfig] Falling back to embedded checks	err="failed to check cache: cache does not exist at \"C:\\\\Users\\\\Yerassil\\\\Desktop\\\\gadgetstore-main\\\\tmp\\\\lab7\\\\trivy-cache\\\\policy\\\\content\""
+2026-10-15T16:51:17+05:00	INFO	[secret] Secret scanning is enabled
+2026-10-15T16:51:17+05:00	INFO	[secret] If your scanning is slow, please try '--scanners misconfig' to disable secret scanning
+2026-10-15T16:51:17+05:00	INFO	[secret] Please see https://trivy.dev/docs/v0.76/guide/scanner/secret#recommendation for faster secret detection
+2026-10-15T16:51:17+05:00	WARN	[pip] Unable to find python `site-packages` directory. License detection is skipped.	err="site-packages directory not found"
+2026-10-15T16:51:17+05:00	INFO	Number of language-specific files	num=1
+2026-10-15T16:51:17+05:00	INFO	Detected config files	num=1

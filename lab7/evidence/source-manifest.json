@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-15",
+  "scope": "Source/configuration working files; no .git history available",
+  "excluded": [
+    "data databases",
+    "backup archives",
+    "images",
+    "previous coursework",
+    "tmp",
+    "output",
+    ".env if present"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "234196ba05410d262d9797fa260badd120fedd12021bcdde0b8ef237e79129d4"
+    },
+    {
+      "path": "app.py",
+      "sha256": "fc8dc61a127a88bf54050c2e71bbc36aaba0c49be996baf580f505a9cf902287"
+    },
+    {
+      "path": "cart.html",
+      "sha256": "d0933f46855c716d224972446b736680119835015396afd2d2f15517c54a0aee"
+    },
+    {
+      "path": "docker-compose.yml",
+      "sha256": "ad2be18a6d65c858827899f4f71671bd5f7a6ce40af530d12682ec9a69678f31"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "8d0cd1e4153011bdc42dc12ab21daf189d0d963bce39a4ef4e1fba5b57078441"
+    },
+    {
+      "path": "index.html",
+      "sha256": "00f2c5327e203852aa738853ffac2a0e9adcdc91fcb34b784a70492c0bcece03"
+    },
+    {
+      "path": "init.sql",
+      "sha256": "1fd23ee94de0a6807d1eb7663c70d51a1cb3e0e9ee347c60a4b947602389fe98"
+    },
+    {
+      "path": "magazine.html",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "package.json",
+      "sha256": "c420992424e7b75a5684b4a1ea2638aa7cccd390014c0cf71a2c7e98dc6cf81d"
+    },
+    {
+      "path": "product.html",
+      "sha256": "aad73dc1db57788c8d2ea2b7dd457c39e4e4671d057a6115a9a8035cebc988c9"
+    },
+    {
+      "path": "products.html",
+      "sha256": "26936797a1a167160b0c9e47b9bf87af3f90951982aea82916f8f0d18515be0e"
+    },
+    {
+      "path": "products.json",
+      "sha256": "c037729a2281390ade2232e1d2b2eb7681ce99f6e7528e71b824bcd5967bd7c2"
+    },
+    {
+      "path": "prometheus.yml",
+      "sha256": "582318937c85b03af6b0c6c304429b9d805c95f809027c29f688e3607e3b87f4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "17c70851a8cc7e14a903176c3662e0c3e297a33c8396533f65e8f52e7a6279a0"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "aa2fb284f54f25daf4030dc74bc8eff0894d0e35cd606678e4bf7a3b56a62635"
+    },
+    {
+      "path": "script.js",
+      "sha256": "eff63ba60fb04b2b2e5ef8172483c681b34f027c098f564fc2d941e7a770f7dd"
+    },
+    {
+      "path": "server.cjs",
+      "sha256": "b304c060a8041d1ae750c1eb377272521df83f0e74dba3b15c022b7d8bba70e9"
+    },
+    {
+      "path": "setup.sh",
+      "sha256": "cbcf8f600bd7a27a2f5073c4db90c8e0259cf79f228981c6d09f5f14ff2ea737"
+    },
+    {
+      "path": "style.css",
+      "sha256": "72ab595e443b5db38feea73183b68a00c958476051d39f4a6fbeb7f6ee6ff6fd"
+    },
+    {
+      "path": "tests/api.cjs",
+      "sha256": "ee7cb6795d0c123743432d240d28dba33f9190957b50e9796d6f8c555aa8609d"
+    }
+  ]
+}

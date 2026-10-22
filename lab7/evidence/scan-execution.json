@@ -1,0 +1,35 @@
+[
+  {
+    "tool": "gitleaks",
+    "exitCode": 0,
+    "command": [
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\tmp\\lab7\\gitleaks\\gitleaks.exe",
+      "dir",
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\tmp\\lab7\\scan-source",
+      "--redact=100",
+      "--report-format",
+      "json",
+      "--report-path",
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\output\\lab7\\evidence\\gitleaks.json",
+      "--no-banner"
+    ]
+  },
+  {
+    "tool": "trivy",
+    "exitCode": 0,
+    "command": [
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\tmp\\lab7\\trivy\\trivy.exe",
+      "fs",
+      "--scanners",
+      "misconfig,secret",
+      "--skip-check-update",
+      "--cache-dir",
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\tmp\\lab7\\trivy-cache",
+      "--format",
+      "json",
+      "--output",
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\output\\lab7\\evidence\\trivy.json",
+      "C:\\Users\\Yerassil\\Desktop\\gadgetstore-main\\tmp\\lab7\\scan-source"
+    ]
+  }
+]

@@ -1,0 +1,665 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "GadgetStore | Order flow STRIDE | Lab 7",
+    "owner": "Зулпыхаров Ерасыл / АЖ-43",
+    "description": "Current localhost prototype. Proposed mitigations are not implemented. Scope: browser, order API, localStorage and SQLite. No payment gateway or active AI component.",
+    "id": "c7345bcd-20dc-4efc-8915-829c31d0655c"
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Зулпыхаров Ерасыл"
+      }
+    ],
+    "reviewer": "Оқытушы/команда тексеруі күтіледі",
+    "diagramTop": 1,
+    "threatTop": 10,
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Order data exchange / STRIDE",
+        "diagramType": "STRIDE",
+        "version": "2.6.2",
+        "thumbnail": "",
+        "description": "TB1: browser/server. TB2: process/filesystem. Public hosting is a future scenario.",
+        "cells": [
+          {
+            "position": {
+              "x": 30,
+              "y": 190
+            },
+            "size": {
+              "width": 140,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "User / guest"
+              },
+              "body": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              }
+            },
+            "shape": "actor",
+            "zIndex": 2,
+            "id": "da5f8f06-c448-541e-8a59-0f8d82640e53",
+            "data": {
+              "name": "User / guest",
+              "type": "tm.Actor",
+              "description": "GadgetStore current implementation, 2026-10-15",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 240,
+              "y": 160
+            },
+            "size": {
+              "width": 140,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "Browser UI\nscript.js"
+              },
+              "body": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              }
+            },
+            "shape": "process",
+            "zIndex": 2,
+            "id": "5ea6f04a-ca53-5083-a55c-2cc78d43c548",
+            "data": {
+              "name": "Browser UI\nscript.js",
+              "type": "tm.Process",
+              "description": "GadgetStore current implementation, 2026-10-15",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "3fa78eea-c676-505b-86bf-36123e0ee09c",
+                  "title": "T02 | R02",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Профиль мәні innerHTML арқылы DOM-ға енеді. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "textContent/value және CSP. Acceptance: HTML-ге ұқсас мән скрипт/элемент ретінде орындалмайды."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 215,
+              "y": 365
+            },
+            "size": {
+              "width": 190,
+              "height": 80
+            },
+            "attrs": {
+              "text": {
+                "text": "localStorage\nprofile + orders"
+              },
+              "topLine": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              },
+              "bottomLine": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              }
+            },
+            "shape": "store",
+            "id": "6db47b14-d1ea-5eef-ba19-2286641339e8",
+            "zIndex": 2,
+            "data": {
+              "name": "localStorage\nprofile + orders",
+              "type": "tm.Store",
+              "description": "GadgetStore current implementation, 2026-10-15",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "8d727120-6d44-50e0-bd43-cd24409c3d49",
+                  "title": "T05 | R03/R04",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Браузер профилін немесе сол origin-ді иеленген субъект карта/тапсырыс деректерін оқиды. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Карта өрістерін жою, клиент дерегін азайту. Acceptance: Карта және жеткізу мекенжайы жергілікті сақтауда қалмайды."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 535,
+              "y": 160
+            },
+            "size": {
+              "width": 150,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "Order API\nserver.cjs"
+              },
+              "body": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              }
+            },
+            "shape": "process",
+            "zIndex": 2,
+            "id": "20078e2e-beae-584e-8df4-6f1761f412d4",
+            "data": {
+              "name": "Order API\nserver.cjs",
+              "type": "tm.Process",
+              "description": "GadgetStore current implementation, 2026-10-15",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "20a016a9-979d-5158-9385-bbd416ec9a8a",
+                  "title": "T01 | R06",
+                  "type": "Spoofing",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Автоматтандырылған клиент жалған аты-жөн мен телефон арқылы тапсырыс береді. Guest checkout өздігінен осалдық емес; мәселе abuse бақылауында. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Rate limit, уақытша бронь және растау. Acceptance: Лимиттен асқан тапсырыс 429; расталмаған бронь босайды."
+                },
+                {
+                  "id": "5da430c4-8571-50a0-8310-66bcd29248f6",
+                  "title": "T03 | R07",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Бір POST қайталанып, екі тапсырыс пен екі қор өзгерісін жасайды. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Idempotency-Key және транзакция. Acceptance: Бір кілтті қайталау бір ID қайтарады, қор бір рет кемиді."
+                },
+                {
+                  "id": "9d44d521-a299-5b83-afe4-a8feb7699679",
+                  "title": "T04 | R08",
+                  "type": "Repudiation",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Тапсырысты кім және қашан жасағанын қауіпсіздік журналы арқылы байланыстыру мүмкін емес. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Request ID, уақыт, нәтиже, шектеулі аудит. Acceptance: Синтетикалық сұраудың нәтижесі журналда PII-сіз табылады."
+                },
+                {
+                  "id": "b8fc19d6-5aca-5002-9a92-acd73769401d",
+                  "title": "T07 | R06/R11",
+                  "type": "Denial of service",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Жарамды сұраулар тасқыны қорды тауыстырады немесе синхронды БҚ-ны жүктейді. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Rate limit, мониторинг, жүктеме шегі. Acceptance: Бекітілген тест жүктемесінде p95 <1 секунд; abuse шектеледі."
+                },
+                {
+                  "id": "89df7677-c175-5808-a9c2-daade0422aa2",
+                  "title": "T08 | R14",
+                  "type": "Elevation of privilege",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Қолданбадағы болашақ код орындау осалдығы root контейнерде артық құқық алады. RCE бар екені дәлелденген жоқ. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Root емес USER, capabilities қысқарту. Acceptance: Контейнер UID !=0; қажетсіз жүйелік операцияларға рұқсат жоқ."
+                },
+                {
+                  "id": "0580e0f3-0a47-5eeb-b293-5e4728d2e035",
+                  "title": "T10 | R21",
+                  "type": "Tampering",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Файлдағы баға өзгерсе де БҚ ескі нұсқаны пайдаланады. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Нұсқаланған каталог migration және салыстыру. Acceptance: Бекітілген каталог нұсқасы API нәтижесімен сәйкес."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 785,
+              "y": 180
+            },
+            "size": {
+              "width": 175,
+              "height": 85
+            },
+            "attrs": {
+              "text": {
+                "text": "SQLite\norders / stock"
+              },
+              "topLine": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              },
+              "bottomLine": {
+                "stroke": "#1d5675",
+                "strokeWidth": 2,
+                "strokeDasharray": ""
+              }
+            },
+            "shape": "store",
+            "id": "e9117653-db31-5037-8e52-b4b33611467d",
+            "zIndex": 2,
+            "data": {
+              "name": "SQLite\norders / stock",
+              "type": "tm.Store",
+              "description": "GadgetStore current implementation, 2026-10-15",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "ea387fd1-5eb6-5aef-8e3a-fa00a30d7a14",
+                  "title": "T06 | R04",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "SQLite не backup файлына рұқсат алған адам тапсырыс PII-ін оқиды. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Least privilege, диск/backup қорғауы, retention. Acceptance: Бөгде ОС аккаунты БҚ мен көшірмені оқи алмайды."
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#1d5675",
+                "strokeWidth": 1,
+                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "circle"
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 4,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Input",
+              "description": "Current localhost HTTP; no card data sent by checkout API.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "314c1d59-47ab-5262-ab64-b0fa3c892ead",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Input"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "da5f8f06-c448-541e-8a59-0f8d82640e53"
+            },
+            "target": {
+              "cell": "5ea6f04a-ca53-5083-a55c-2cc78d43c548"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#1d5675",
+                "strokeWidth": 1,
+                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "circle"
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 4,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Profile / history",
+              "description": "Current localhost HTTP; no card data sent by checkout API.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "303cccf9-5224-5d25-bdda-f557d94dc758",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Profile / history"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5ea6f04a-ca53-5083-a55c-2cc78d43c548"
+            },
+            "target": {
+              "cell": "6db47b14-d1ea-5eef-ba19-2286641339e8"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#1d5675",
+                "strokeWidth": 1,
+                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "circle"
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 4,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "POST /api/orders",
+              "description": "Current localhost HTTP; no card data sent by checkout API.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "HTTP",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isTrustBoundary": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "ed3a7599-f471-5ea0-9e76-7caa0cb2877d",
+                  "title": "T09 | R24",
+                  "type": "Information disclosure",
+                  "modelType": "STRIDE",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "HTTP интерфейсін сыртқы желіге ашқанда тапсырыс дерегі тасымалдау кезінде ашылуы мүмкін. Owner: Зулпыхаров Ерасыл",
+                  "mitigation": "Жария ортада TLS, trusted origin, firewall. Acceptance: Сыртқы HTTP PII қабылдамайды; HTTPS сұрауы өтеді."
+                }
+              ]
+            },
+            "id": "c5051804-5bcc-5a59-9143-58f291f2172a",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "POST /api/orders"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "5ea6f04a-ca53-5083-a55c-2cc78d43c548"
+            },
+            "target": {
+              "cell": "20078e2e-beae-584e-8df4-6f1761f412d4"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#1d5675",
+                "strokeWidth": 1,
+                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "circle"
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 4,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Transaction",
+              "description": "Current localhost HTTP; no card data sent by checkout API.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "3ef0caac-bb1f-5029-9a72-d3db401e388c",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Transaction"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "20078e2e-beae-584e-8df4-6f1761f412d4"
+            },
+            "target": {
+              "cell": "e9117653-db31-5037-8e52-b4b33611467d"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#1d5675",
+                "strokeWidth": 1,
+                "strokeDasharray": "",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "circle"
+                }
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 4,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "201: order + PII",
+              "description": "Current localhost HTTP; no card data sent by checkout API.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "protocol": "local",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "isTrustBoundary": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "9e35c81e-776b-5174-badd-c208b85b3e24",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "201: order + PII"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "20078e2e-beae-584e-8df4-6f1761f412d4"
+            },
+            "target": {
+              "cell": "5ea6f04a-ca53-5083-a55c-2cc78d43c548"
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": 315
+              },
+              {
+                "x": 310,
+                "y": 315
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "sourceMarker": "",
+                "stroke": "#d9822b",
+                "strokeWidth": 2,
+                "strokeDasharray": "6 5"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 1,
+            "connector": "smooth",
+            "labels": [
+              {
+                "position": 0.1,
+                "attrs": {
+                  "text": {
+                    "text": "TB1 Browser / server"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB1 Browser / server",
+              "description": "Trust boundary",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "b4e9a068-559a-59f3-a765-4702a777fe55",
+            "source": {
+              "x": 460,
+              "y": 80
+            },
+            "target": {
+              "x": 460,
+              "y": 470
+            },
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "attrs": {
+              "line": {
+                "targetMarker": "",
+                "sourceMarker": "",
+                "stroke": "#d9822b",
+                "strokeWidth": 2,
+                "strokeDasharray": "6 5"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 1,
+            "connector": "smooth",
+            "labels": [
+              {
+                "position": 0.1,
+                "attrs": {
+                  "text": {
+                    "text": "TB2 Process / filesystem"
+                  }
+                }
+              }
+            ],
+            "data": {
+              "type": "tm.Boundary",
+              "name": "TB2 Process / filesystem",
+              "description": "Trust boundary",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "12ced983-7838-5da6-adc1-697c191abaaa",
+            "source": {
+              "x": 735,
+              "y": 80
+            },
+            "target": {
+              "x": 735,
+              "y": 470
+            },
+            "vertices": []
+          }
+        ],
+        "size": {
+          "width": 1000,
+          "height": 530
+        }
+      }
+    ]
+  }
+}
