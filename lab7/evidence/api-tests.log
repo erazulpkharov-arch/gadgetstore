@@ -7,3 +7,13 @@
 ℹ skipped 0
 ℹ todo 0
 ℹ duration_ms 366.5346
+
+api-tests.log — GadgetStore API тесті өткенінің журналы.
+artifact-checks.json — дайын PDF, RAID, STRIDE және файлдар саны тексерілген нәтиже.
+gitleaks.json, gitleaks.log — кодтан құпиясөз, API key сияқты құпия деректер іздеу нәтижесі. Стандартты сканер құпия таппаған.
+trivy.json, trivy.log — Docker және конфигурация қауіптерін тексеру. Root қолданушы және HEALTHCHECK жоқ екені табылған.
+scan-execution.json — сканерлер қандай командамен және қандай нәтижемен орындалғаны.
+source-manifest.json — сканерленген файлдар тізімі және олардың SHA-256 хэштері.
+threat-model-validation.json — Threat Dragon STRIDE моделі ресми JSON схемасына сай екенін тексеру.
+tool-integrity.json — Trivy мен Gitleaks құралдарының жүктелген файлдары checksum арқылы тексерілгені.
+main.py, main2.py — тексеру кезінде қолданылған көмекші скрипттер.
